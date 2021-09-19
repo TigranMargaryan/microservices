@@ -1,0 +1,51 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <changeSet id="1" author="Tigran Margaryan">
+        <comment>microservice db</comment>
+
+        <sql>
+            SET foreign_key_checks = 0;
+            DROP TABLE IF EXISTS `user`;
+            SET foreign_key_checks = 1;
+        </sql>
+
+        <createTable tableName="user">
+            <column name="id" type="VARCHAR2(32)">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="email" type="VARCHAR2(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="password" type="VARCHAR2(32)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="updated" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <insert tableName="user">
+            <column name="id" value="1"/>
+            <column name="email" value="margaryan@gmail.com"/>
+            <column name="password" value="1234qwer"/>
+            <column name="created" value="19082021"/>
+            <column name="updated" value="19082021"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="id" value="2"/>
+            <column name="email" value="minasyan@gmail.com"/>
+            <column name="password" value="tlam12456"/>
+            <column name="created" value="19082021"/>
+            <column name="updated" value="19082021"/>
+        </insert>
+
+    </changeSet>
+
+</databaseChangeLog>
