@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  user-db:
+    image: mysql:latest
+    hostname: user-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password
+
+  note-db:
+    image: mysql:latest
+    hostname: note-db
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    command: --default-authentication-plugin=mysql_native_password
