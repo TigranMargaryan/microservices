@@ -15,7 +15,7 @@
         </sql>
 
         <createTable tableName="user">
-            <column name="id" type="VARCHAR2(32)">
+            <column name="id" type="VARCHAR2(60)">
                 <constraints primaryKey="true"/>
             </column>
             <column name="email" type="VARCHAR2(32)">
@@ -24,10 +24,10 @@
             <column name="password" type="VARCHAR2(100)">
                 <constraints nullable="false"/>
             </column>
-            <column name="created" type="BIGINT">
+            <column name="created" type="VARCHAR2(32)">
                 <constraints nullable="false"/>
             </column>
-            <column name="updated" type="BIGINT">
+            <column name="updated" type="VARCHAR2(32)">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -37,8 +37,8 @@
             <column name="email" value="margaryan@gmail.com"/>
             <column name="password"
                     value="$2a$10$Np.TAZrOm56IwvF.JQhQIu9Yb4QpAgP3AlbuPOnmodaoV3LQZMV.e"/>  <!--tlam142536-->
-            <column name="created" value="19082021"/>
-            <column name="updated" value="19082021"/>
+            <column name="created" value="2021-09-21 00:25:52.957"/>
+            <column name="updated" value="2021-09-21 00:25:52.957"/>
         </insert>
 
         <insert tableName="user">
@@ -46,8 +46,8 @@
             <column name="email" value="tlam@gmail.com"/>
             <column name="password"
                     value="$2a$10$E.7f.hP3T.WGGzYJ/E1AX.QvOWekiGF59yKmwRgA6ajbU70XsRdri"/> <!--tlam14-->
-            <column name="created" value="19082021"/>
-            <column name="updated" value="19082021"/>
+            <column name="created" value="2021-09-21 00:25:52.957"/>
+            <column name="updated" value="2021-09-21 00:25:52.957"/>
         </insert>
 
     </changeSet>

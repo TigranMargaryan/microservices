@@ -3,6 +3,8 @@ package com.user.service.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Date;
+import java.util.UUID;
 
 @Entity
 public class User {
@@ -21,17 +23,17 @@ public class User {
     private String password;
 
     @Column(name = "created", nullable = false)
-    protected long created;
+    public Date created;
 
     @Column(name = "updated", nullable = false)
-    protected long updated;
+    public Date updated;
 
     public String getId() {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId() {
+        this.id = UUID.randomUUID().toString();;
     }
 
     public String getEmail() {
@@ -50,19 +52,31 @@ public class User {
         this.password = password;
     }
 
-    public long getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(long created) {
-        this.created = created;
+    public void setCreated() {
+        this.created =  new Date();;
     }
 
-    public long getUpdated() {
+    public Date getUpdated() {
         return updated;
     }
 
-    public void setUpdated(long updated) {
-        this.updated = updated;
+    public void setUpdated() {
+        this.updated =  new Date();;
+    }
+
+    @PrePersist
+    private void beforeSave() {
+        setId();
+        setCreated();
+        setUpdated();
+    }
+
+    @PreUpdate
+    private void beforeUpdate() {
+        setUpdated();
     }
 }

@@ -72,4 +72,16 @@ public class Note {
     public void setUpdated() {
         this.updated = new Date();
     }
+
+    @PrePersist
+    private void beforeSave() {
+        setId();
+        setCreated();
+        setUpdated();
+    }
+
+    @PreUpdate
+    private void beforeUpdate() {
+        setUpdated();
+    }
 }

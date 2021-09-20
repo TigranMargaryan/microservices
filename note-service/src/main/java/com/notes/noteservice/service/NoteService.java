@@ -25,15 +25,11 @@ public class NoteService implements INoteService {
 
     @Override
     public void create(Note note) {
-        note.setId();
-        note.setCreated();
-        note.setUpdated();
         noteRepository.save(note);
     }
 
     @Override
     public void update(Note note) {
-        note.setUpdated();
         noteRepository.save(note);
     }
 
