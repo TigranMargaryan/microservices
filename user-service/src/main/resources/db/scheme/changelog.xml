@@ -21,7 +21,7 @@
             <column name="email" type="VARCHAR2(32)">
                 <constraints nullable="false"/>
             </column>
-            <column name="password" type="VARCHAR2(32)">
+            <column name="password" type="VARCHAR2(100)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="BIGINT">
@@ -35,15 +35,17 @@
         <insert tableName="user">
             <column name="id" value="1"/>
             <column name="email" value="margaryan@gmail.com"/>
-            <column name="password" value="1234qwer"/>
+            <column name="password"
+                    value="$2a$10$Np.TAZrOm56IwvF.JQhQIu9Yb4QpAgP3AlbuPOnmodaoV3LQZMV.e"/>  <!--tlam142536-->
             <column name="created" value="19082021"/>
             <column name="updated" value="19082021"/>
         </insert>
 
         <insert tableName="user">
             <column name="id" value="2"/>
-            <column name="email" value="minasyan@gmail.com"/>
-            <column name="password" value="tlam12456"/>
+            <column name="email" value="tlam@gmail.com"/>
+            <column name="password"
+                    value="$2a$10$E.7f.hP3T.WGGzYJ/E1AX.QvOWekiGF59yKmwRgA6ajbU70XsRdri"/> <!--tlam14-->
             <column name="created" value="19082021"/>
             <column name="updated" value="19082021"/>
         </insert>
