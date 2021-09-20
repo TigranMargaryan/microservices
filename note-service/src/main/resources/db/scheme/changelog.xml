@@ -3,25 +3,27 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
     <property name="NOW" value="UNIX_TIMESTAMP(NOW())" dbms="mysql"/>
     <property name="GUID" value="REPLACE(UUID(), '-', '')" dbms="mysql"/>
+
     <changeSet id="1" author="Tigran Margaryan" runOnChange="true">
-        <comment>microservice db</comment>
+        <comment>microservice db note</comment>
 
         <sql>
             SET foreign_key_checks = 0;
-            DROP TABLE IF EXISTS `user`;
+            DROP TABLE IF EXISTS `note`;
             SET foreign_key_checks = 1;
         </sql>
 
-        <createTable tableName="user">
+        <createTable tableName="note">
             <column name="id" type="VARCHAR2(32)">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="email" type="VARCHAR2(32)">
+            <column name="title" type="VARCHAR2(50)">
                 <constraints nullable="false"/>
             </column>
-            <column name="password" type="VARCHAR2(32)">
+            <column name="note" type="VARCHAR2(1000)">
                 <constraints nullable="false"/>
             </column>
             <column name="created" type="BIGINT">
@@ -31,22 +33,6 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
-
-        <insert tableName="user">
-            <column name="id" value="1"/>
-            <column name="email" value="margaryan@gmail.com"/>
-            <column name="password" value="1234qwer"/>
-            <column name="created" value="19082021"/>
-            <column name="updated" value="19082021"/>
-        </insert>
-
-        <insert tableName="user">
-            <column name="id" value="2"/>
-            <column name="email" value="minasyan@gmail.com"/>
-            <column name="password" value="tlam12456"/>
-            <column name="created" value="19082021"/>
-            <column name="updated" value="19082021"/>
-        </insert>
 
     </changeSet>
 
