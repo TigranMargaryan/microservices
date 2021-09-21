@@ -1,4 +1,4 @@
-package com.notes.noteservice.config.security;
+package com.notes.noteservice.controller;
 
 import com.notes.noteservice.config.Response;
 import com.notes.noteservice.context.UserDetailService;
@@ -19,7 +19,7 @@ public class LoginUser {
 
     private static final Logger LOG = LoggerFactory.getLogger(LoginUser.class);
 
-    public static final String AUTHORIZATION_SUCCESSFUL = "authorization successful";
+    private static final String AUTHORIZATION_SUCCESSFUL = "authorization successful";
 
     @Value("${resource.token.uri}")
     private String uri;
@@ -48,7 +48,7 @@ public class LoginUser {
         OAuth2RestTemplate template = new OAuth2RestTemplate(resource);
         detailService.setEmail(email);
         detailService.setPassword(password);
-        detailService.setScope(template.getAccessToken().toString());
+        detailService.setToken(template.getAccessToken().toString());
 
         LOG.debug("authorization successful for user: " + email);
         return new Response(AUTHORIZATION_SUCCESSFUL);

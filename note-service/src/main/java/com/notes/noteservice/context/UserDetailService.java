@@ -3,7 +3,7 @@ package com.notes.noteservice.context;
 public class UserDetailService {
     private String email;
     private String password;
-    private String scope;
+    private String token;
 
     public String getEmail() {
         return email;
@@ -21,11 +21,11 @@ public class UserDetailService {
         this.password = password;
     }
 
-    public String getScope() {
-        return scope;
+    public String getToken() {
+        return token;
     }
 
-    public void setScope(String scope) {
-        this.scope = scope;
+    public void setToken(String token) {
+        this.token = token;
     }
 }

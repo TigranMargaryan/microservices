@@ -1,25 +1,26 @@
 package com.notes.noteservice.config.exception;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
+import java.util.List;
 
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
 @ControllerAdvice
 public class Handler {
 
     private static final Logger LOG = LoggerFactory.getLogger(Handler.class);
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<Object> handle(Exception ex) {
-        if (ex instanceof NullPointerException) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<Object> handle(Throwable throwable) {
+        List<String> result = new ArrayList<>();
+        while (throwable != null) {
+            result.add(throwable.getMessage());
+            throwable = throwable.getCause();
         }
-        LOG.error("Configuration failed: " + ex.getCause());
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(ex.getCause());
+        LOG.error("Configuration failed: " + result);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(result);
     }
 }

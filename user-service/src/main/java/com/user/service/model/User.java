@@ -33,7 +33,7 @@ public class User {
     }
 
     public void setId() {
-        this.id = UUID.randomUUID().toString();;
+        this.id = UUID.randomUUID().toString().replace("-", "");;
     }
 
     public String getEmail() {

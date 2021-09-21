@@ -20,6 +20,9 @@
             <column name="id" type="VARCHAR2(60)">
                 <constraints primaryKey="true"/>
             </column>
+            <column name="user_email" type="VARCHAR2(50)">
+                <constraints nullable="false"/>
+            </column>
             <column name="title" type="VARCHAR2(50)">
                 <constraints nullable="false"/>
             </column>

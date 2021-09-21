@@ -1,11 +1,15 @@
 package com.notes.noteservice.domain.data;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class NoteData {
 
     private String id;
+
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
+    private String userEmail;
 
     private String title;
 
@@ -53,5 +57,13 @@ public class NoteData {
 
     public void setUpdated(String updated) {
         this.updated = updated;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

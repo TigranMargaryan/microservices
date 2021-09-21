@@ -13,10 +13,13 @@ public class Note {
     @Column(name = "id", nullable = false)
     private String id;
 
-    @Size(max = 50)
     @Column(name = "title", nullable = false)
     @NotBlank
     private String title;
+
+    @Column(name = "user_email", nullable = false)
+    @NotBlank
+    private String userEmail;
 
     @Size(max = 1000)
     @Column(name = "note", nullable = false)
@@ -38,7 +41,7 @@ public class Note {
     }
 
     public void setId() {
-        this.id = UUID.randomUUID().toString();
+        this.id = UUID.randomUUID().toString().replace("-", "");
     }
 
     public String getId() {
@@ -71,6 +74,14 @@ public class Note {
 
     public void setUpdated() {
         this.updated = new Date();
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
     @PrePersist
