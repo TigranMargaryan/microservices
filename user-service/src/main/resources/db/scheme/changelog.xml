@@ -45,7 +45,16 @@
             <column name="id" value="2"/>
             <column name="email" value="tlam@gmail.com"/>
             <column name="password"
-                    value="$2a$10$E.7f.hP3T.WGGzYJ/E1AX.QvOWekiGF59yKmwRgA6ajbU70XsRdri"/> <!--tlam14-->
+                    value="$2a$10$Np.TAZrOm56IwvF.JQhQIu9Yb4QpAgP3AlbuPOnmodaoV3LQZMV.e"/> <!--tlam142536-->
+            <column name="created" value="2021-09-21 00:25:52.957"/>
+            <column name="updated" value="2021-09-21 00:25:52.957"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="id" value="3"/>
+            <column name="email" value="tigran@gmail.com"/>
+            <column name="password"
+                    value="$2a$10$SoHr/1008CDkInKYz9xViObD2DOd9NLIu4lVaAw7wdR9qVsrw93s6"/> <!--123456789-->
             <column name="created" value="2021-09-21 00:25:52.957"/>
             <column name="updated" value="2021-09-21 00:25:52.957"/>
         </insert>

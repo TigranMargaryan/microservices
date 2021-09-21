@@ -1,6 +1,6 @@
 package com.user.service.config.security;
 
-import com.user.service.model.User;
+import com.user.service.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;

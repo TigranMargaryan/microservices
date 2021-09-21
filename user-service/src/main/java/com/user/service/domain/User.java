@@ -1,4 +1,4 @@
-package com.user.service.model;
+package com.user.service.domain;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -13,7 +13,7 @@ public class User {
     @Column(name = "id", nullable = false)
     private String id;
 
-    @Column(name = "email", nullable = false, unique = true)
+    @Column(name = "email", nullable = false)
     @NotBlank
     private String email;
 

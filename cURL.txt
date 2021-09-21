@@ -1,0 +1,59 @@
+//Login User-service
+
+
+curl --location --request POST 'http://localhost:8080/login' \
+--header 'Authorization: Basic dGxhbTE0OnRsYW0xNA==' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--data-urlencode 'username=margaryan@gmail.com' \
+--data-urlencode 'password=tlam142536' \
+--data-urlencode 'grant_type=password'
+
+
+//Login Note-service
+
+
+curl --location --request POST 'http://localhost:9090/login?email=margaryan@gmail.com&password=tlam142536'
+
+
+//Create note
+
+
+curl --location --request POST 'http://localhost:9090/api/notes' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "title": " hello",
+    "note": "text"
+}'
+
+
+//Update note
+
+
+curl --location --request PUT 'http://localhost:9090/api/notes/9dbe2c6326f243a686d0a661c47d4c41' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "title": "123qt11ata hello",
+    "note": "text"
+}'
+
+
+//Get all notes
+
+
+curl --location --request GET 'http://localhost:9090/api/notes/all'
+
+
+//Get note
+
+
+curl --location --request GET 'http://localhost:9090/api/notes/9dbe2c6326f243a686d0a661c47d4c41'
+
+
+//Delete note
+
+
+curl --location --request DELETE 'http://localhost:9090/api/notes/670eabdbc7dc4dc0835b6e8d67260c0d'
+
+
+
+
