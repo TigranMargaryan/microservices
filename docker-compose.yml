@@ -17,3 +17,31 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
     command: --default-authentication-plugin=mysql_native_password
+
+  user-service:
+    restart: on-failure
+    build: ./user-service
+    expose:
+      - "8080"
+    ports:
+      - 8080:8080
+    depends_on:
+      - user-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://user-db:3306/users?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+  note-service:
+    restart: on-failure
+    build: ./note-service
+    expose:
+      - "9090"
+    ports:
+      - 9090:9090
+    depends_on:
+      - note-db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://note-db:3306/notes?createDatabaseIfNotExist=true
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
