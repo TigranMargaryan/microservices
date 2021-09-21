@@ -1,6 +1,7 @@
 package com.notes.noteservice.controller;
 
 import com.notes.noteservice.config.Response;
+import com.notes.noteservice.context.UserDetailService;
 import com.notes.noteservice.domain.model.Note;
 import com.notes.noteservice.domain.data.NoteData;
 import com.notes.noteservice.service.INoteService;
@@ -16,16 +17,17 @@ public class NodeController {
 
     private final ModelMapper modelMapper;
     private final INoteService noteService;
+    private final UserDetailService detailService;
 
     @Autowired
-    public NodeController(ModelMapper modelMapper, INoteService noteService) {
+    public NodeController(ModelMapper modelMapper, INoteService noteService, UserDetailService detailService) {
         this.modelMapper = modelMapper;
         this.noteService = noteService;
+        this.detailService = detailService;
     }
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public Response createNote(@RequestBody NoteData noteData) {
-
         Note note = modelMapper.map(noteData, Note.class);
         noteService.create(note);
 
