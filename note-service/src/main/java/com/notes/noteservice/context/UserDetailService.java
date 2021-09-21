@@ -28,4 +28,10 @@ public class UserDetailService {
     public void setToken(String token) {
         this.token = token;
     }
+
+    public void setNull() {
+        this.email = null;
+        this.password = null;
+        this.token = null;
+    }
 }
